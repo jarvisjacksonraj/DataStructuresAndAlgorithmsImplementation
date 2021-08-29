@@ -1,4 +1,6 @@
-## Implementation of DataStructures and Algorithms
+# Implementation of DataStructures and Algorithms
+
+## Data Structures
 
 ### Linked List
  
