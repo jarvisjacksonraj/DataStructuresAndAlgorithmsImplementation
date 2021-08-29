@@ -1,6 +1,5 @@
 package DS_ALGO.DataStructures.Trees;
 
-import DS_ALGO.DataStructures.Trees.Practice.IdenticalTree;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -40,11 +39,6 @@ public class BinarySearchTreeTest {
         binarySearchTreeRootNode.print("", binarySearchTreeRootNode, false);
     }
 
-    @Test
-    public void testIdenticalBST() {
-        assertTrue(IdenticalTree.areIdentical(binarySearchTree1.rootNode, binarySearchTree2.rootNode));
-        assertFalse(IdenticalTree.areIdentical(binarySearchTree1.rootNode, binarySearchTree3.rootNode));
-    }
 
     @Test
     public void testDeleteBST() {
@@ -59,7 +53,6 @@ public class BinarySearchTreeTest {
         binarySearchTree1.delete(50);
         printTree(binarySearchTree1.rootNode);
         System.out.println();
-        assertFalse(IdenticalTree.areIdentical(binarySearchTree1.rootNode, binarySearchTree2.rootNode));
     }
 
 
