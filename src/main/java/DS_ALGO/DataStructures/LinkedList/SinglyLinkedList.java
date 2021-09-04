@@ -12,7 +12,7 @@ public class SinglyLinkedList<T> {
      * size     :   size of SLL
      * * * * * * * * * * * * * * * * * * */
 
-    public class Node<T> {
+    public static class Node<T> {
         public Node nextNode;
         public T data;
     }
@@ -28,10 +28,7 @@ public class SinglyLinkedList<T> {
 
     // Time complexity of isEmpty() method is O(1)
     public boolean isEmpty() {
-        if (headNode == null) {
-            return true;
-        }
-        return false;
+        return headNode == null;
     }
 
     /**
@@ -42,7 +39,9 @@ public class SinglyLinkedList<T> {
     public void insertAtHead(T data) {
         Node newNode = new Node();
         newNode.data = data;
-        newNode.nextNode = headNode;
+        if (headNode != null) {
+            newNode.nextNode = headNode;
+        }
         headNode = newNode;
         size++;
     }
@@ -65,7 +64,24 @@ public class SinglyLinkedList<T> {
         size++;
     }
 
-    void insertAfter(T data, T previous) {
+    public void insertByPosition(T data, int position) {
+        if (position == 1) {
+            insertAtHead(data);
+            return;
+        }
+        Node newNode = new Node();
+        newNode.data = data;
+
+        Node currentNode = headNode;
+        for (int i = 0; i < position-2; i++) {
+            currentNode = currentNode.nextNode;
+        }
+        newNode.nextNode = currentNode.nextNode;
+        currentNode.nextNode = newNode;
+        size++;
+    }
+
+    public void insertAfter(T data, T previous) {
         Node newNode = new Node();
         newNode.data = data;
 
@@ -79,6 +95,51 @@ public class SinglyLinkedList<T> {
             size++;
         }
 
+    }
+
+    public void deleteAtHead() {
+        if (headNode != null) {
+            headNode = headNode.nextNode;
+        }
+        size--;
+    }
+
+    public void deleteByPosition(int position) {
+        if (position == 1) {
+            deleteAtHead();
+            return;
+        }
+
+        Node currentNode = headNode;
+        for (int i = 0; i < position-2; i++) {
+            currentNode = currentNode.nextNode;
+        }
+        Node nextNode = currentNode.nextNode;
+        currentNode.nextNode = nextNode.nextNode;
+        size--;
+    }
+
+    public void deleteByValue(T data){
+        if (isEmpty())
+            return;
+
+        Node currentNode = this.headNode;
+        Node previousNode = null;
+
+        if(currentNode.data.equals(data)) {
+            deleteAtHead();
+            return;
+        }
+
+        while (currentNode != null) {
+            if (data.equals(currentNode.data)){
+                previousNode.nextNode = currentNode.nextNode;
+                return;
+            }
+            previousNode = currentNode;
+            currentNode = currentNode.nextNode;
+        }
+        size--;
     }
 
     public void printSLL() {
