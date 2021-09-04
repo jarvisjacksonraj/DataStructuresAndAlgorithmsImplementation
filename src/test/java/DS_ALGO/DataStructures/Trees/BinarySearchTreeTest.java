@@ -1,13 +1,16 @@
 package DS_ALGO.DataStructures.Trees;
 
-import org.junit.Before;
-import org.junit.Test;
+
+
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 public class BinarySearchTreeTest {
 
@@ -16,7 +19,7 @@ public class BinarySearchTreeTest {
     private BinarySearchTree<Integer> binarySearchTree3;
 
 
-    @Before
+    @BeforeAll
     public void setUp() {
         binarySearchTree1 = new BinarySearchTree<>();
         binarySearchTree2 = new BinarySearchTree<>();

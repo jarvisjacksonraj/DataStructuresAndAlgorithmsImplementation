@@ -1,13 +1,11 @@
 package DS_ALGO.Algorithms.Sorting;
 
-import DS_ALGO.DataStructures.Trees.Practice.IdenticalTree;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.assertFalse;
 
 public class SortingTest {
     @SuppressWarnings("unchecked")
