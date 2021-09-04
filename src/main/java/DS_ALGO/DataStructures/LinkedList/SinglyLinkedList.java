@@ -75,7 +75,7 @@ public class SinglyLinkedList<T> {
         newNode.data = data;
 
         Node currentNode = headNode;
-        for (int i = 0; i < position-2; i++) {
+        for (int i = 0; i < position - 2; i++) {
             currentNode = currentNode.nextNode;
         }
         newNode.nextNode = currentNode.nextNode;
@@ -113,7 +113,7 @@ public class SinglyLinkedList<T> {
         }
 
         Node currentNode = headNode;
-        for (int i = 0; i < position-2; i++) {
+        for (int i = 0; i < position - 2; i++) {
             currentNode = currentNode.nextNode;
         }
         Node nextNode = currentNode.nextNode;
@@ -121,20 +121,20 @@ public class SinglyLinkedList<T> {
         size--;
     }
 
-    public void deleteByValue(T data){
+    public void deleteByValue(T data) {
         if (isEmpty())
             return;
 
         Node currentNode = this.headNode;
         Node previousNode = null;
 
-        if(currentNode.data.equals(data)) {
+        if (currentNode.data.equals(data)) {
             deleteAtHead();
             return;
         }
 
         while (currentNode != null) {
-            if (data.equals(currentNode.data)){
+            if (data.equals(currentNode.data)) {
                 previousNode.nextNode = currentNode.nextNode;
                 return;
             }
@@ -142,6 +142,28 @@ public class SinglyLinkedList<T> {
             currentNode = currentNode.nextNode;
         }
         size--;
+    }
+
+    public T getNodeValueByIndex(int index) {
+        if (index > size - 1) return null;
+        if (index == 1) {
+            return (T) headNode.data;
+        }
+        Node currNode = headNode;
+        for (int i = 0; i < index - 2; i++) {
+            currNode = currNode.nextNode;
+        }
+        return (T) currNode.nextNode.data;
+    }
+
+    public boolean searchNode(T data) {
+        Node currentNode = headNode;
+        while (currentNode != null) {
+            if (currentNode.data.equals(data))
+                return true;
+            currentNode = currentNode.nextNode;
+        }
+        return false;
     }
 
     public void printSLL() {
