@@ -10,6 +10,8 @@ public class SinglyLinkedList<T> {
      * * * * * * * * * * * * * * * * * * *
      * headNode :   head node of the SLL
      * size     :   size of SLL
+     *
+     * Starting position is 1st Indexed Singly Linked List
      * * * * * * * * * * * * * * * * * * */
 
     public static class Node<T> {
